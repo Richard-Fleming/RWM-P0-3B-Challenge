@@ -40,8 +40,12 @@ public class Laser : MonoBehaviour
     private int shrapnelAmount = 4;
     [SerializeField]
     private int shrapnelForce = 5;
+    [SerializeField]
+    private GameObject laser;
 
     public bool isShrapnel;
+    private Game game;
+
 
 
 	void Update ()
@@ -66,15 +70,21 @@ public class Laser : MonoBehaviour
             {
                 for (int i = 0; i < shrapnelAmount; i++)
                 {
-                    GameObject newLaser = Instantiate(this.gameObject);
-                    float rx = Random.Range(-1f, 1f);
-                    float ry = Random.Range(-1f, 1f);
-                    Vector3 randomDir = new Vector3(rx, ry ,0);
-                    newLaser.transform.position = newLaser.transform.position +(1.2f * randomDir);
-                    newLaser.GetComponent<Rigidbody>().AddForce(randomDir * shrapnelForce, ForceMode.Impulse);
-                    newLaser.GetComponent<Laser>().isShrapnel = false;
+                    spawnShrapnel();
                 }
             }
         }
+    }
+
+    public void spawnShrapnel()
+    {
+        GameObject newLaser = Instantiate(laser);
+        Game.AddShrapnel();
+        float rx = Random.Range(-1f, 1f);
+        float ry = Random.Range(-1f, 1f);
+        Vector3 randomDir = new Vector3(rx, ry ,0);
+        newLaser.transform.position = newLaser.transform.position +(1.2f * randomDir);
+        newLaser.GetComponent<Rigidbody>().AddForce(randomDir * shrapnelForce, ForceMode.Impulse);
+        newLaser.GetComponent<Laser>().isShrapnel = false;
     }
 }

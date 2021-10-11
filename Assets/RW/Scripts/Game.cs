@@ -53,6 +53,9 @@ public class Game : MonoBehaviour
 
     private static Game instance;
 
+    public int shrapnelCounter = 0;
+
+
     private void Start()
     {
         instance = this;
@@ -92,6 +95,11 @@ public class Game : MonoBehaviour
     {
         instance.score++;
         instance.scoreText.text = "Score: " + instance.score;
+    }
+
+    public static void AddShrapnel()
+    {
+        instance.shrapnelCounter++;
     }
 
     public Ship GetShip()
