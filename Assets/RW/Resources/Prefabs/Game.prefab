@@ -5792,10 +5792,6 @@ MonoBehaviour:
   isDead: 0
   speed: 5
   canShoot: 1
-<<<<<<< HEAD
-=======
-  sniperUpgrade: 0
->>>>>>> 11e2c2b4179e17b6f9eb61a1c0b8c4741f859863
   mesh: {fileID: 23655058077935950}
   explosion: {fileID: 1293165385092864}
   laser: {fileID: 1729882074787140}
@@ -5861,14 +5857,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 114967116146624472}
-<<<<<<< HEAD
   shrapnelAmount: 4
   shrapnelForce: 5
   laser: {fileID: 1729882074787140}
   isShrapnel: 0
-=======
-  isSniperBullet: 0
->>>>>>> 11e2c2b4179e17b6f9eb61a1c0b8c4741f859863
 --- !u!54 &54607553103520588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5883,11 +5875,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-<<<<<<< HEAD
   m_Constraints: 120
-=======
-  m_Constraints: 112
->>>>>>> 11e2c2b4179e17b6f9eb61a1c0b8c4741f859863
   m_CollisionDetection: 0
 --- !u!1 &1789779211926856
 GameObject:

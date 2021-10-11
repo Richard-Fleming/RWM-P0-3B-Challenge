@@ -46,11 +46,8 @@ public class Laser : MonoBehaviour
     public bool isShrapnel;
     private Game game;
 
-
-
     public bool isSniperBullet = false;
 
-    public bool isSniperBullet = false;
 
 	void Update ()
     {

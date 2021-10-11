@@ -30,7 +30,7 @@ public class SniperTests
 
 
         GameObject ship = game.GetShip().gameObject;
-        ship.GetComponent<Ship>().lasersFired = 0;
+        ship.GetComponent<Ship>().countBullets = 0;
 
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = Vector3.zero;
@@ -64,7 +64,7 @@ public class SniperTests
     public IEnumerator ShipSpawnsSniperBulletOnTenthShot()
     {
         GameObject ship = game.GetShip().gameObject;
-        ship.GetComponent<Ship>().lasersFired = 9;
+        ship.GetComponent<Ship>().countBullets = 10;
 
         GameObject laser = game.GetShip().SpawnLaser();
 
