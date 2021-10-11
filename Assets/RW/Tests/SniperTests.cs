@@ -26,6 +26,12 @@ public class SniperTests
     [UnityTest]
     public IEnumerator AsteroidTakesTwoHits()
     {
+        game.NewGame();
+
+
+        GameObject ship = game.GetShip().gameObject;
+        ship.GetComponent<Ship>().lasersFired = 0;
+
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = Vector3.zero;
         asteroid.GetComponent<Asteroid>().health = 2;
