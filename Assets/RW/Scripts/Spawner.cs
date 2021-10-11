@@ -81,6 +81,11 @@ public class Spawner : MonoBehaviour
                 break;
         }
 
+        float morehp = Random.Range(0.0f, 1.0f);
+
+        if (morehp >= 0.5f) // spawn asteroid with more hp 50% of the time
+            asteroid.GetComponent<Asteroid>().health = 2;
+
         asteroid.SetActive(true);
         float xPos = Random.Range(-8.0f, 8.0f);
 

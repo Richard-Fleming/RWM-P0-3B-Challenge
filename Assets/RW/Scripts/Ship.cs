@@ -37,9 +37,10 @@ public class Ship : MonoBehaviour
     public bool isDead = false;
     public float speed = 1;
     public bool canShoot = true;
+    public bool sniperUpgrade = false;
 
     [SerializeField]
-    private  MeshRenderer mesh;
+    private MeshRenderer mesh;
     [SerializeField]
     private GameObject explosion;
     [SerializeField]
@@ -83,6 +84,7 @@ public class Ship : MonoBehaviour
         canShoot = false;
         GameObject laserShot = SpawnLaser();
         laserShot.transform.position = shotSpawn.position;
+        laserShot.GetComponent<Laser>().isSniperBullet = sniperUpgrade;
         yield return new WaitForSeconds(0.4f);
         canShoot = true;
     }
@@ -108,7 +110,7 @@ public class Ship : MonoBehaviour
         transform.Translate(-Vector3.right * Time.deltaTime * speed);
         if (transform.position.x > maxRight)
         {
-             transform.position = new Vector3(maxRight, -3.22f, 0);
+            transform.position = new Vector3(maxRight, -3.22f, 0);
         }
     }
 
