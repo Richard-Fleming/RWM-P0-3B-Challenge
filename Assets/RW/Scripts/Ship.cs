@@ -102,7 +102,7 @@ public class Ship : MonoBehaviour
         canShoot = false;
         Debug.Log("Reloading");
         countBullets = 0;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.0f);//done
         canShoot = true;
     }
     IEnumerator Shoot()
