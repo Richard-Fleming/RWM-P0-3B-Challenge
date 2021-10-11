@@ -35,9 +35,11 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     public bool isDead = false;
+    public bool loading = false;
     public float speed = 1;
     public bool canShoot = true;
-
+    public int timer = 0;
+    public float countBullets = 0;
     [SerializeField]
     private  MeshRenderer mesh;
     [SerializeField]
@@ -57,10 +59,22 @@ public class Ship : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.Space) && canShoot)
+
+        if (countBullets >= 10)
         {
-            ShootLaser();
+
+            reloader();
         }
+
+        if (Input.GetKey(KeyCode.Space) && canShoot)
+            {
+                ShootLaser();
+                countBullets++;
+                Debug.Log(countBullets);
+                
+            }
+
+
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -78,6 +92,19 @@ public class Ship : MonoBehaviour
         StartCoroutine("Shoot");
     }
 
+    public void reloader()
+    {
+        StartCoroutine("Reload");
+    }
+
+     IEnumerator Reload()
+    {
+        canShoot = false;
+        Debug.Log("Reloading");
+        countBullets = 0;
+        yield return new WaitForSeconds(2.0f);//done
+        canShoot = true;
+    }
     IEnumerator Shoot()
     {
         canShoot = false;
