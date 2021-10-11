@@ -51,6 +51,8 @@ public class Game : MonoBehaviour
     [SerializeField]
     private Spawner spawner;
 
+    public int shrapnelCounter = 0;
+
     private static Game instance;
 
     private void Start()
@@ -92,6 +94,12 @@ public class Game : MonoBehaviour
     {
         instance.score++;
         instance.scoreText.text = "Score: " + instance.score;
+    }
+
+
+    public static void AddShrapnel()
+    {
+        instance.shrapnelCounter++;
     }
 
     public Ship GetShip()
