@@ -51,6 +51,8 @@ public class Game : MonoBehaviour
     [SerializeField]
     private Spawner spawner;
 
+    public int shrapnelCounter = 0;
+
     private static Game instance;
 
     private void Start()
@@ -94,11 +96,24 @@ public class Game : MonoBehaviour
         instance.scoreText.text = "Score: " + instance.score;
     }
 
+
+    public static void AddShrapnel()
+    {
+        instance.shrapnelCounter++;
+    }
+
     public Ship GetShip()
     {
         return shipModel.GetComponent<Ship>();
     }
-
+  
+    public int GetTimer()
+    {
+         int y = 0;
+         shipModel.GetComponent<Ship>();
+         y = shipModel.GetComponent<Ship>().timer;
+        return y;
+    }
     public Spawner GetSpawner()
     {
         return spawner.GetComponent<Spawner>();

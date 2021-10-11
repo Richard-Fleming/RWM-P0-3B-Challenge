@@ -128,10 +128,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 1014613554579478, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+=======
+>>>>>>> f75978f (added shrapnel)
     - target: {fileID: 4055792686439916, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -164,6 +167,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 4055792686439916, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -174,6 +178,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4055792686439916, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+=======
+    - target: {fileID: 54607553103520588, guid: 3befbaa1b3b83f243a244d723a27c16e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114762169254249198, guid: 3befbaa1b3b83f243a244d723a27c16e,
+        type: 3}
+      propertyPath: shrapnelAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224299825354672640, guid: 3befbaa1b3b83f243a244d723a27c16e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+>>>>>>> f75978f (added shrapnel)
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
