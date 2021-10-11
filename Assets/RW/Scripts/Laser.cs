@@ -64,7 +64,7 @@ public class Laser : MonoBehaviour
         if (collision.gameObject.GetComponent<Asteroid>() != null)
         {
             if (collision.gameObject.GetComponent<Asteroid>().health == 1 || isSniperBullet)
-            {
+            {// destroy asteroid if hp is 1 or this bullet is a sniper bullet
                 Game.AsteroidDestroyed();
                 spawner.asteroids.Remove(collision.gameObject);
                 Destroy(collision.gameObject);

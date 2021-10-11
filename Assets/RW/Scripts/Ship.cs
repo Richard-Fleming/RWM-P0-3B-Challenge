@@ -131,7 +131,7 @@ public class Ship : MonoBehaviour
     {
         canShoot = false;
         GameObject laserShot = SpawnLaser();
-        laserShot.transform.position = shotSpawn.position;
+        laserShot.transform.position = shotSpawn.position;     
         yield return new WaitForSeconds(0.4f);
         canShoot = true;
     }
@@ -157,6 +157,12 @@ public class Ship : MonoBehaviour
         newLaser.GetComponent<Laser>().isShrapnel = true;
         newLaser.GetComponent<Laser>().isSniperBullet = sniperUpgrade;
         newLaser.SetActive(true);
+
+        if (countBullets > 9)
+        {
+            newLaser.GetComponent<Laser>().isSniperBullet = true;
+        }
+
         return newLaser;
     }
 
