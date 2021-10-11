@@ -37,7 +37,7 @@ public class Ship : MonoBehaviour
     public bool isDead = false;
     public float speed = 1;
     public bool canShoot = true;
-    public bool sniperUpgrade = false;
+    public int lasersFired = 0;
 
     [SerializeField]
     private MeshRenderer mesh;
@@ -84,7 +84,16 @@ public class Ship : MonoBehaviour
         canShoot = false;
         GameObject laserShot = SpawnLaser();
         laserShot.transform.position = shotSpawn.position;
-        laserShot.GetComponent<Laser>().isSniperBullet = sniperUpgrade;
+
+        lasersFired++;
+
+        if(lasersFired == 10)
+        {
+            laserShot.GetComponent<Laser>().isSniperBullet = true;
+            lasersFired = 0; // TODO: Replace with reload feature later on
+        }
+            
+
         yield return new WaitForSeconds(0.4f);
         canShoot = true;
     }
