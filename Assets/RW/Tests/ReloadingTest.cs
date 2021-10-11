@@ -10,6 +10,7 @@ namespace Tests
     {
 
         private Game game;
+        private Ship ship;
 
         [SetUp]
         public void Setup()
@@ -23,6 +24,7 @@ namespace Tests
         public void Teardown()
         {
             Object.Destroy(game.gameObject);
+           
         }
         
 
@@ -31,10 +33,20 @@ namespace Tests
         [UnityTest]
         public IEnumerator ReadingBulletCount()
         {
-            GameObject ship = game.GetShip().SpawnLaser();
+       
+           
+                game.GetShip().ShootLaser();
+                game.GetShip().countBullets++;
+                game.GetShip().reloader();
+               
+            
+            yield return new WaitForSeconds(0.4f);
+            // no bullets going
+
+            UnityEngine.Assertions.Assert.AreEqual(game.GetShip().countBullets, 0);
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
-            yield return null;
+            
         }
     }
 }

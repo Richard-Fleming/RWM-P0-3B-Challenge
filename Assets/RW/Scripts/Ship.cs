@@ -58,26 +58,23 @@ public class Ship : MonoBehaviour
         {
             return;
         }
-        if(!loading)
+
+
+        if (countBullets >= 10)
         {
-            if (Input.GetKey(KeyCode.Space) && canShoot)
+
+            reloader();
+        }
+
+        if (Input.GetKey(KeyCode.Space) && canShoot)
             {
                 ShootLaser();
                 countBullets++;
                 Debug.Log(countBullets);
-                if (countBullets >= 10)
-                {
-                    
-                    loading = true;
-                    Reload();
-                }
+                
             }
-        }
-        else
-        {
-            Reload();
-        }
-       
+
+
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -95,22 +92,18 @@ public class Ship : MonoBehaviour
         StartCoroutine("Shoot");
     }
 
-    public void Reload()
+    public void reloader()
     {
-    
-        //countBullets = 0;
+        StartCoroutine("Reload");
+    }
+
+     IEnumerator Reload()
+    {
+        canShoot = false;
         Debug.Log("Reloading");
-      
-        timer++;
-        if(timer>=360)
-        {
-            Debug.Log("Reloading DONE");
-            loading = false;
-            countBullets = 0;
-            timer = 0;
-        }
-     
-        //yield return new WaitForSeconds(2.0f);
+        countBullets = 0;
+        yield return new WaitForSeconds(2.0f);
+        canShoot = true;
     }
     IEnumerator Shoot()
     {
