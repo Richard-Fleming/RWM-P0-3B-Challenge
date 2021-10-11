@@ -28,16 +28,21 @@ public class SniperTests
     {
         game.NewGame();
 
-
         GameObject ship = game.GetShip().gameObject;
         ship.GetComponent<Ship>().countBullets = 0;
+
+        Debug.Log(ship.GetComponent<Ship>().countBullets);
 
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = Vector3.zero;
         asteroid.GetComponent<Asteroid>().health = 2;
+
         GameObject laser = game.GetShip().SpawnLaser();
         laser.transform.position = Vector3.zero;
+        laser.GetComponent<Laser>().isShrapnel = false;
+
         yield return new WaitForSeconds(0.1f);
+
         UnityEngine.Assertions.Assert.IsNotNull(asteroid);
 
         asteroid.transform.position = Vector3.zero;

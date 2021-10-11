@@ -71,11 +71,6 @@ public class Laser : MonoBehaviour
             else
                 collision.gameObject.GetComponent<Asteroid>().health -= 1;
 
-
-
-            if (!isSniperBullet) // only remove laser if it is not a Sniper Bullet
-                Destroy(gameObject);
-
             if(isShrapnel)
             {
                 for (int i = 0; i < shrapnelAmount; i++)
@@ -83,6 +78,9 @@ public class Laser : MonoBehaviour
                     spawnShrapnel();
                 }
             }
+
+            if (!isSniperBullet) // only remove laser if it is not a Sniper Bullet
+                Destroy(gameObject);
         }
     }
 
