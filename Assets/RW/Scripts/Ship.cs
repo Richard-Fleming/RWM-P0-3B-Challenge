@@ -131,7 +131,7 @@ public class Ship : MonoBehaviour
     {
         canShoot = false;
         GameObject laserShot = SpawnLaser();
-        laserShot.transform.position = shotSpawn.position;     
+        laserShot.transform.position = shotSpawn.position;
         yield return new WaitForSeconds(0.4f);
         canShoot = true;
     }
