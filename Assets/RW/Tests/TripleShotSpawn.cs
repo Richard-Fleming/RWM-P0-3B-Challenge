@@ -32,12 +32,16 @@ public class TripleShotSpawn
         }
         asteroid[0].transform.position = new Vector2(asteroid[0].transform.position.x, 0.0f);
         Debug.Log(asteroid[0].transform.position);
+
         asteroid[1].transform.position = new Vector2(asteroid[1].transform.position.x, 4.0f);
         Debug.Log(asteroid[1].transform.position);
+        
         asteroid[2].transform.position = new Vector2(asteroid[2].transform.position.x, 8.0f);
         Debug.Log(asteroid[2].transform.position);
+
         game.GetShip().ShootTripleShot();
         Debug.Log(game.GetShip().transform.position);
+
         yield return new WaitForSeconds(1.5f);
 
         for (int i = 0; i < 3; i++)

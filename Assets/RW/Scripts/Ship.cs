@@ -67,7 +67,7 @@ public class Ship : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && canShoot)
         {
-            if(Time.time - downTime > 1)
+            if(Time.time - downTime > 1 && canTriple)
                 ShootTripleShot();
             else if (Time.time - downTime < 1 && Time.time - downTime > 0)
                 ShootLaser();
@@ -106,6 +106,7 @@ public class Ship : MonoBehaviour
     IEnumerator TripleShot()
     {
         canShoot = false;
+        canTriple = false;
         for(int i = 0; i < 3; i++)
         {
             GameObject laserShot = SpawnLaser();
@@ -113,6 +114,8 @@ public class Ship : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         canShoot = true;
+        yield return new WaitForSeconds(3.0f);
+        canTriple = true;
     }
 
     public GameObject SpawnLaser()
