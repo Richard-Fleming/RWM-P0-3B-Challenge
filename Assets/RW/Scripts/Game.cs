@@ -98,7 +98,19 @@ public class Game : MonoBehaviour
     {
         return shipModel.GetComponent<Ship>();
     }
+    public static int Reload()
+    {
+        GameObject love = love.GetComponent<Ship>();
+        return love;
+    }
 
+    public int GetTimer()
+    {
+         int y = 0;
+         shipModel.GetComponent<Ship>();
+         y = shipModel.GetComponent<Ship>().timer;
+        return y;
+    }
     public Spawner GetSpawner()
     {
         return spawner.GetComponent<Spawner>();
