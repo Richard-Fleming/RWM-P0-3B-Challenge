@@ -90,6 +90,7 @@ public class Ship : MonoBehaviour
     public GameObject SpawnLaser()
     {
         GameObject newLaser = Instantiate(laser);
+        newLaser.isShrapnel = false;
         newLaser.SetActive(true);
         return newLaser;
     }

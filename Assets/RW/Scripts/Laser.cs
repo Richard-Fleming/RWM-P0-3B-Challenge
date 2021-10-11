@@ -36,6 +36,7 @@ public class Laser : MonoBehaviour
 {
     [SerializeField]
     private Spawner spawner;
+    public bool isShrapnel;
 
 	void Update ()
     {
@@ -54,6 +55,11 @@ public class Laser : MonoBehaviour
             Destroy(gameObject);
             spawner.asteroids.Remove(collision.gameObject);
             Destroy(collision.gameObject);
+            if(!isShrapnel)
+            {
+            //TODO: add random shrapnel here
+
+            }
         }
     }
 }
