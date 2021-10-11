@@ -37,6 +37,7 @@ public class Ship : MonoBehaviour
     public bool isDead = false;
     public float speed = 1;
     public bool canShoot = true;
+    public bool canTriple = true;
 
     [SerializeField]
     private  MeshRenderer mesh;
@@ -50,6 +51,8 @@ public class Ship : MonoBehaviour
     private float maxLeft = -8;
     private float maxRight = 8;
 
+    private float downTime = 0.0f;
+
     private void Update()
     {
         if (isDead)
@@ -57,9 +60,17 @@ public class Ship : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot)
+        {
+            downTime = Time.time;
+        }
+
         if (Input.GetKey(KeyCode.Space) && canShoot)
         {
-            ShootLaser();
+            if(Time.time - downTime > 1 && canTriple)
+                ShootTripleShot();
+            else if (Time.time - downTime < 1 && Time.time - downTime > 0)
+                ShootLaser();
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -78,6 +89,11 @@ public class Ship : MonoBehaviour
         StartCoroutine("Shoot");
     }
 
+    public void ShootTripleShot()
+    {
+        StartCoroutine("TripleShot");
+    }
+
     IEnumerator Shoot()
     {
         canShoot = false;
@@ -85,6 +101,21 @@ public class Ship : MonoBehaviour
         laserShot.transform.position = shotSpawn.position;
         yield return new WaitForSeconds(0.4f);
         canShoot = true;
+    }
+
+    IEnumerator TripleShot()
+    {
+        canShoot = false;
+        canTriple = false;
+        for(int i = 0; i < 3; i++)
+        {
+            GameObject laserShot = SpawnLaser();
+            laserShot.transform.position = shotSpawn.position;
+            yield return new WaitForSeconds(0.1f);
+        }
+        canShoot = true;
+        yield return new WaitForSeconds(3.0f);
+        canTriple = true;
     }
 
     public GameObject SpawnLaser()
