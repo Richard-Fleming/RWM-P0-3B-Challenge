@@ -34,6 +34,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    public int health = 1;
     public float speed = 1;
     private float maxY = -5;
 

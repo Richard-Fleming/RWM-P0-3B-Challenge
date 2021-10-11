@@ -48,6 +48,8 @@ public class Laser : MonoBehaviour
 
 
 
+    public bool isSniperBullet = false;
+
 	void Update ()
     {
         transform.Translate(Vector3.back * Time.deltaTime * 5);
@@ -61,10 +63,19 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Asteroid>() != null)
         {
-            Game.AsteroidDestroyed();
-            Destroy(gameObject);
-            spawner.asteroids.Remove(collision.gameObject);
-            Destroy(collision.gameObject);
+            if (collision.gameObject.GetComponent<Asteroid>().health == 1 || isSniperBullet)
+            {
+                Game.AsteroidDestroyed();
+                spawner.asteroids.Remove(collision.gameObject);
+                Destroy(collision.gameObject);
+            }
+            else
+                collision.gameObject.GetComponent<Asteroid>().health -= 1;
+
+
+
+            if (!isSniperBullet) // only remove laser if it is not a Sniper Bullet
+                Destroy(gameObject);
 
             if(isShrapnel)
             {
