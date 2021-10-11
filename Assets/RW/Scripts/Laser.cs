@@ -50,6 +50,8 @@ public class Laser : MonoBehaviour
 
     public bool isSniperBullet = false;
 
+    public bool isSniperBullet = false;
+
 	void Update ()
     {
         transform.Translate(Vector3.back * Time.deltaTime * 5);
