@@ -39,7 +39,7 @@ public class Ship : MonoBehaviour
     public float speed = 1;
     public bool canShoot = true;
     public bool canTriple = true;
-    public bool sniperUpgrade = false;
+    public bool hasShrapnel = true;
 
     public int timer = 0;
     public float countBullets = 0;
@@ -84,12 +84,12 @@ public class Ship : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Space) && canShoot)
-            {
-                ShootLaser();
-                countBullets++;
-                Debug.Log(countBullets);
+        { 
+            countBullets++;
+            ShootLaser();
+            Debug.Log(countBullets);
 
-            }
+        }
 
 
 
@@ -154,9 +154,9 @@ public class Ship : MonoBehaviour
     public GameObject SpawnLaser()
     {
         GameObject newLaser = Instantiate(laser);
-        newLaser.GetComponent<Laser>().isShrapnel = true;
-        newLaser.GetComponent<Laser>().isSniperBullet = sniperUpgrade;
+        newLaser.GetComponent<Laser>().isShrapnel = hasShrapnel;
         newLaser.SetActive(true);
+
 
         if (countBullets > 9)
         {

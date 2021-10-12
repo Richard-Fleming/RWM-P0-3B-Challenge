@@ -24,10 +24,14 @@ public class TripleShotSpawn
     [UnityTest]
     public IEnumerator TripleShot()
     {
+        game.NewGame();
+        Game.GameOver();
+
         GameObject[] asteroid = new GameObject[3];
         for (int i = 0; i < 3; i++)
         {
             asteroid[i] = game.GetSpawner().SpawnAsteroid();
+            asteroid[i].GetComponent<Asteroid>().health = 1;
             asteroid[i].transform.position = game.GetShip().transform.position;
         }
         asteroid[0].transform.position = new Vector2(asteroid[0].transform.position.x, 0.0f);
@@ -39,6 +43,7 @@ public class TripleShotSpawn
         asteroid[2].transform.position = new Vector2(asteroid[2].transform.position.x, 8.0f);
         Debug.Log(asteroid[2].transform.position);
 
+        game.GetShip().GetComponent<Ship>().hasShrapnel = false;
         game.GetShip().ShootTripleShot();
         Debug.Log(game.GetShip().transform.position);
 

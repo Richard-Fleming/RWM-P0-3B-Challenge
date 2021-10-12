@@ -76,6 +76,13 @@ public class Game : MonoBehaviour
 
     public void NewGame()
     {
+        GameObject[] lasers = GameObject.FindGameObjectsWithTag("Laser");
+
+        foreach (GameObject laser in lasers)
+        {
+            Destroy(laser);
+        }
+
         isGameOver = false;
         titleText.enabled = false;
         startGameButton.SetActive(false);
@@ -86,6 +93,7 @@ public class Game : MonoBehaviour
         scoreText.enabled = true;
         spawner.BeginSpawning();
         shipModel.GetComponent<Ship>().RepairShip();
+        shipModel.GetComponent<Ship>().countBullets = 0;
         spawner.ClearAsteroids();
         gameOverText.enabled = false;
     }

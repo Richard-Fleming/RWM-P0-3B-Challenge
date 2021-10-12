@@ -24,6 +24,9 @@ public class TSCooldown
     [UnityTest]
     public IEnumerator Cooldown()
     {
+        game.NewGame();
+        Game.GameOver();
+
         game.GetShip().ShootTripleShot();
         yield return new WaitForSeconds(1.5f);
 

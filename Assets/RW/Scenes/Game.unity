@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &557112325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114338881368631318, guid: 3befbaa1b3b83f243a244d723a27c16e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1791806027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e2d61045e8d324e9bee2512c8252b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1791806027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,13 +140,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 1014613554579478, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
-=======
->>>>>>> 11e2c2b4179e17b6f9eb61a1c0b8c4741f859863
+    - target: {fileID: 1729882074787140, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
+      propertyPath: m_TagString
+      value: Laser
+      objectReference: {fileID: 0}
     - target: {fileID: 4055792686439916, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -167,7 +180,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4055792686439916, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -178,17 +190,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4055792686439916, guid: 3befbaa1b3b83f243a244d723a27c16e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-=======
-    - target: {fileID: 114885424819564724, guid: 3befbaa1b3b83f243a244d723a27c16e,
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114762169254249198, guid: 3befbaa1b3b83f243a244d723a27c16e,
         type: 3}
-      propertyPath: sniperLaser
+      propertyPath: game
       value: 
-      objectReference: {fileID: 1283342480626072, guid: 5ee4653291898da498a56e08fed7b053,
-        type: 3}
+      objectReference: {fileID: 557112325}
     - target: {fileID: 224299825354672640, guid: 3befbaa1b3b83f243a244d723a27c16e,
         type: 3}
       propertyPath: m_LocalPosition.z
->>>>>>> 11e2c2b4179e17b6f9eb61a1c0b8c4741f859863
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

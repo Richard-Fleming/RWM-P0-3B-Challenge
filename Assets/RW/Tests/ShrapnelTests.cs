@@ -26,12 +26,15 @@ public class ShrapnelTests
      [UnityTest]
     public IEnumerator ShrapnelMade()
     {
-        game.GetSpawner().BeginSpawning();
+        game.NewGame();
+        Game.GameOver();
+
+        
       
         GameObject newlaser = game.GetShip().SpawnLaser();
         newlaser.GetComponent<Laser>().spawnShrapnel();
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         Assert.Greater(game.shrapnelCounter, 0);
     }  
 } 

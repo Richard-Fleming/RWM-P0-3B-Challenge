@@ -33,9 +33,10 @@ namespace Tests
         [UnityTest]
         public IEnumerator ReadingBulletCount()
         {
-       
-           
-                game.GetShip().ShootLaser();
+            game.NewGame();
+            Game.GameOver();
+
+            game.GetShip().ShootLaser();
                 game.GetShip().countBullets++;
                 game.GetShip().reloader();
                
