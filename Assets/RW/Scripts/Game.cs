@@ -83,6 +83,13 @@ public class Game : MonoBehaviour
             Destroy(laser);
         }
 
+        GameObject[] asteroids = GameObject.FindGameObjectsWithTag("Asteroid");
+
+        foreach (GameObject aster in asteroids)
+        {
+            Destroy(aster);
+        }
+
         isGameOver = false;
         titleText.enabled = false;
         startGameButton.SetActive(false);
